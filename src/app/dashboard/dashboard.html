@@ -1,1 +1,63 @@
-<p>dashboard works!</p>
+
+<div class="dashboard-container">
+    <h1>Transaction Dashboard</h1>
+
+      
+    <!-- Transaction Selection -->
+    <div style="margin-bottom: 50px; margin-top: 30px;">
+        <label>Select Month:</label>
+        <select [(ngModel)]="selectedMonth">
+          <option *ngFor="let month of months" [value]="month.value">{{ month.name }}</option>
+        </select>
+    
+        <label>Select Year:</label>
+        <select [(ngModel)]="selectedYear">
+          <option *ngFor="let year of years" [value]="year">{{ year }}</option>
+        </select>
+    
+        <button (click)="loadMonthlyData()">Show Monthly Data</button>
+      </div>
+
+  
+    <!-- Transaction Type Summary -->
+    <div style="margin-bottom: 30px;">
+      <h2>Transaction Counts by Type</h2>
+      <div *ngIf="transactionTypeData.length; else noTypeData">
+        <div *ngFor="let item of transactionTypeData" style="margin-bottom: 8px;">
+          <strong>{{ item.name }}</strong>: {{ item.value }}
+        </div>
+      </div>
+      <ng-template #noTypeData>
+        <p>No transaction type data available.</p>
+      </ng-template>
+    </div>
+  
+    <!-- Transaction Amount Summary -->
+    <div style="margin-bottom: 30px;">
+      <h2>Total Transaction Amount by Type</h2>
+      <div *ngIf="transactionAmountData.length; else noAmountData">
+        <div *ngFor="let item of transactionAmountData" style="margin-bottom: 8px;">
+          <strong>{{ item.name }}</strong>: {{ item.value }}
+        </div>
+      </div>
+      <ng-template #noAmountData>
+        <p>No transaction amount data available.</p>
+      </ng-template>
+    </div>
+  
+
+
+    <!-- Monthly Transaction Summary -->
+    <h2 style="margin-bottom: 50px;">Monthly Transaction Chart</h2>
+
+    <div *ngIf="monthlyTransactionData.length; else noMonthlyData">
+      <div *ngFor="let item of monthlyTransactionData" style="margin-bottom: 8px;">
+        <strong>{{ item.name }}</strong>: {{ item.value }}
+      </div>
+    </div>
+    <ng-template #noMonthlyData>
+      <p>No monthly transaction data available.</p>
+    </ng-template>
+  </div>
+  
+  

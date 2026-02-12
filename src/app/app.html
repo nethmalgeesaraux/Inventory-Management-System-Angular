@@ -1,1 +1,47 @@
-<router-outlet></router-outlet>
+<div class="dashboard-layout">
+  <!-- SIDEBAR -->
+  <div class="sidebar">
+    <h1 class="ims">
+      <img src="https://img.icons8.com/?size=100&id=115213&format=png&color=000000" alt="Logo" />
+    </h1>
+    <ul class="nav-links">
+      <li *ngIf="isAuth()"><a routerLink="/dashboard">Dashbaord</a></li>
+      <li *ngIf="isAuth()"><a routerLink="/transaction">Transactions</a></li>
+      <li *ngIf="isAdmin()"><a routerLink="/category">Category</a></li>
+      <li *ngIf="isAdmin()"><a routerLink="/product">Product</a></li>
+      <li *ngIf="isAdmin()"><a routerLink="/supplier">Supplier</a></li>
+      <li *ngIf="isAuth()"><a routerLink="/purchase">Purchase</a></li>
+      <li *ngIf="isAuth()"><a routerLink="/sell">Sell</a></li>
+      <li *ngIf="isAuth()"><a routerLink="/profile">Profile</a></li>
+      <li *ngIf="!isAuth()" class="auth-link">
+        <a routerLink="/login">
+          <span class="auth-content">
+            <img
+              class="icon"
+              src="https://img.icons8.com/?size=100&id=HJkqqrerefKU&format=png&color=ffffff"
+            />
+            Login
+          </span>
+        </a>
+      </li>
+
+      <li *ngIf="!isAuth()" class="auth-link">
+        <a routerLink="/register">
+          <span class="auth-content">
+            <img
+              class="icon"
+              src="https://img.icons8.com/?size=100&id=8953&format=png&color=ffffff"
+            />
+            Register
+          </span>
+        </a>
+      </li>
+      <li *ngIf="isAuth()"><a (click)="logOut()">Logout</a></li>
+    </ul>
+  </div>
+
+  <!-- MAIN CONTENT Area-->
+  <div class="main-content">
+    <router-outlet></router-outlet>
+  </div>
+</div>
