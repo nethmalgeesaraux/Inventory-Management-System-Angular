@@ -17,12 +17,12 @@
 }
 
 .ims {
-  margin-left: 12%;
+  margin-left: 20%;
   text-align: center;
 }
 
 .ims img {
-  width: 100px;
+  width: 80px;
 }
 
 .nav-links {
@@ -140,8 +140,8 @@
 .auth-link a:hover .arrow-img {
   opacity: 1;
   transform: translateX(6px);
-} */
+}
 
-.auth-link a:hover {
+ .auth-link a:hover {
   background: rgba(37, 117, 252, 0.2);
 }

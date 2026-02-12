@@ -1,63 +1,59 @@
 
 <div class="dashboard-container">
-    <h1>Transaction Dashboard</h1>
+  <h1>Transaction Dashboard</h1>
 
-      
-    <!-- Transaction Selection -->
-    <div style="margin-bottom: 50px; margin-top: 30px;">
-        <label>Select Month:</label>
-        <select [(ngModel)]="selectedMonth">
-          <option *ngFor="let month of months" [value]="month.value">{{ month.name }}</option>
-        </select>
-    
-        <label>Select Year:</label>
-        <select [(ngModel)]="selectedYear">
-          <option *ngFor="let year of years" [value]="year">{{ year }}</option>
-        </select>
-    
-        <button (click)="loadMonthlyData()">Show Monthly Data</button>
-      </div>
+  <!-- Transaction Selection -->
+  <div class="filters">
+    <label>Select Month:</label>
+    <select [(ngModel)]="selectedMonth">
+      <option *ngFor="let month of months" [value]="month.value">{{ month.name }}</option>
+    </select>
 
-  
-    <!-- Transaction Type Summary -->
-    <div style="margin-bottom: 30px;">
-      <h2>Transaction Counts by Type</h2>
-      <div *ngIf="transactionTypeData.length; else noTypeData">
-        <div *ngFor="let item of transactionTypeData" style="margin-bottom: 8px;">
-          <strong>{{ item.name }}</strong>: {{ item.value }}
-        </div>
-      </div>
-      <ng-template #noTypeData>
-        <p>No transaction type data available.</p>
-      </ng-template>
-    </div>
-  
-    <!-- Transaction Amount Summary -->
-    <div style="margin-bottom: 30px;">
-      <h2>Total Transaction Amount by Type</h2>
-      <div *ngIf="transactionAmountData.length; else noAmountData">
-        <div *ngFor="let item of transactionAmountData" style="margin-bottom: 8px;">
-          <strong>{{ item.name }}</strong>: {{ item.value }}
-        </div>
-      </div>
-      <ng-template #noAmountData>
-        <p>No transaction amount data available.</p>
-      </ng-template>
-    </div>
-  
+    <label>Select Year:</label>
+    <select [(ngModel)]="selectedYear">
+      <option *ngFor="let year of years" [value]="year">{{ year }}</option>
+    </select>
 
+    <button (click)="loadMonthlyData()">Show Monthly Data</button>
+  </div>
 
-    <!-- Monthly Transaction Summary -->
-    <h2 style="margin-bottom: 50px;">Monthly Transaction Chart</h2>
-
-    <div *ngIf="monthlyTransactionData.length; else noMonthlyData">
-      <div *ngFor="let item of monthlyTransactionData" style="margin-bottom: 8px;">
+  <!-- Transaction Type Count -->
+  <div class="data-section">
+    <h2>Transaction Counts by Type</h2>
+    <div *ngIf="transactionTypeData.length; else noTypeData" class="data-list">
+      <div *ngFor="let item of transactionTypeData" class="data-item">
         <strong>{{ item.name }}</strong>: {{ item.value }}
       </div>
     </div>
-    <ng-template #noMonthlyData>
-      <p>No monthly transaction data available.</p>
+    <ng-template #noTypeData>
+      <p class="empty-message">No transaction type data available.</p>
     </ng-template>
   </div>
+
+  <!-- Transaction Amount by Type -->
+  <div class="data-section">
+    <h2>Total Transaction Amount by Type</h2>
+    <div *ngIf="transactionAmountData.length; else noAmountData" class="data-list">
+      <div *ngFor="let item of transactionAmountData" class="data-item">
+        <strong>{{ item.name }}</strong>: {{ item.value }}
+      </div>
+    </div>
+    <ng-template #noAmountData>
+      <p class="empty-message">No transaction amount data available.</p>
+    </ng-template>
+  </div>
+
+  <!-- Monthly Transaction -->
+  <h2 class="monthly-title">Monthly Transaction Chart</h2>
+
+  <div *ngIf="monthlyTransactionData.length; else noMonthlyData" class="data-list">
+    <div *ngFor="let item of monthlyTransactionData" class="data-item">
+      <strong>{{ item.name }}</strong>: {{ item.value }}
+    </div>
+  </div>
+  <ng-template #noMonthlyData>
+    <p class="empty-message">No monthly transaction data available.</p>
+  </ng-template>
+
   
-  
+</div>

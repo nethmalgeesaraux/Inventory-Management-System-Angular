@@ -1,0 +1,181 @@
+.dashboard-container {
+  padding: 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* ---------- Filters Section ---------- */
+.filters {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 15px;
+  margin-bottom: 40px;
+  margin-top: 20px;
+  background: #f8f9fa;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+}
+
+.filters label {
+  font-weight: 600;
+  color: #2c3e50;
+  font-size: 16px;
+}
+
+.filters select {
+  padding: 10px 16px;
+  font-size: 16px;
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  background-color: white;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  min-width: 150px;
+}
+
+.filters select:hover {
+  border-color: #3498db;
+  box-shadow: 0 0 0 2px rgba(52,152,219,0.1);
+}
+
+.filters button {
+  padding: 10px 24px;
+  font-size: 16px;
+  font-weight: 600;
+  color: white;
+  background: linear-gradient(135deg, #3498db, #2980b9);
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: transform 0.2s, box-shadow 0.2s;
+  box-shadow: 0 4px 6px rgba(52,152,219,0.2);
+}
+
+.filters button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 12px rgba(52,152,219,0.3);
+}
+
+/* ---------- Data Sections ---------- */
+.data-section {
+  background: white;
+  border-radius: 16px;
+  padding: 24px;
+  margin-bottom: 30px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+  border: 1px solid #f0f0f0;
+}
+
+h1, h2 {
+  text-align: center;
+  color: #2c3e50;
+}
+
+h1 {
+  font-size: 28px;
+  margin-bottom: 20px;
+  font-weight: 600;
+  letter-spacing: 1px;
+}
+
+h2 {
+  font-size: 22px;
+  margin-top: 0;
+  margin-bottom: 20px;
+  font-weight: 500;
+  color: #34495e;
+  border-bottom: 2px solid #f0f0f0;
+  padding-bottom: 12px;
+}
+
+/* ---------- Data List (Grid) ---------- */
+.data-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 16px;
+  margin-top: 10px;
+}
+
+.data-item {
+  background: #fafbfc;
+  padding: 16px 20px;
+  border-radius: 12px;
+  border-left: 5px solid #3498db;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.02);
+  transition: all 0.3s ease;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.data-item:hover {
+  background: white;
+  box-shadow: 0 5px 15px rgba(52,152,219,0.12);
+  transform: translateY(-2px);
+}
+
+.data-item strong {
+  color: #2c3e50;
+  font-size: 16px;
+  text-transform: capitalize;
+}
+
+.data-item span.value {
+  font-weight: 700;
+  color: #2980b9;
+  background: #ebf5ff;
+  padding: 4px 12px;
+  border-radius: 20px;
+  font-size: 15px;
+}
+
+/* ---------- Monthly Title Special ---------- */
+.monthly-title {
+  margin-top: 20px;
+  margin-bottom: 30px;
+}
+
+/* ---------- Empty State Messages ---------- */
+.empty-message {
+  text-align: center;
+  padding: 30px;
+  background: #f8f9fa;
+  border-radius: 12px;
+  color: #7f8c8d;
+  font-size: 16px;
+  border: 1px dashed #bdc3c7;
+}
+
+/* ---------- Responsive Adjustments ---------- */
+@media (max-width: 768px) {
+  .filters {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  
+  .filters select,
+  .filters button {
+    width: 100%;
+  }
+  
+  .data-list {
+    grid-template-columns: 1fr;
+  }
+  
+  .dashboard-container {
+    padding: 15px;
+  }
+}
+
+/* ---------- Utility (for values inside data-item) ---------- */
+.data-item .value-badge {
+  background: #e8f5e9;
+  color: #27ae60;
+  padding: 4px 12px;
+  border-radius: 30px;
+  font-weight: 600;
+}

@@ -122,4 +122,19 @@ export class Dashboard implements OnInit {
     }));
   }
 
+  getBarHeight(value: number): number {
+    if (!this.monthlyTransactionData.length) {
+      return 0;
+    }
+
+    const maxValue = Math.max(...this.monthlyTransactionData.map((item) => item.value || 0));
+    if (maxValue <= 0) {
+      return 0;
+    }
+
+    return Math.max(0, (value / maxValue) * 100);
+  }
+
+  
+
 }
